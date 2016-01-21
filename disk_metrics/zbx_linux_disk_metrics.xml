@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-01-20T13:50:09Z</date>
+    <date>2016-01-21T16:23:13Z</date>
     <groups>
         <group>
             <name>Templates</name>
-        </group>
-        <group>
-            <name>
-					Templates
-                </name>
         </group>
     </groups>
     <templates>
@@ -20,11 +15,6 @@
             <groups>
                 <group>
                     <name>Templates</name>
-                </group>
-                <group>
-                    <name>
-					Templates
-                </name>
                 </group>
             </groups>
             <applications>
@@ -70,7 +60,7 @@
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>30</lifetime>
+                    <lifetime>8</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
@@ -195,13 +185,13 @@
                         <conditions>
                             <condition>
                                 <macro>{#FSTYPE}</macro>
-                                <value>ext</value>
+                                <value>^(btrfs|ext2|ext3|ext4|jfs|reiser|xfs|ffs|ufs|jfs|jfs2|vxfs|hfs|ntfs|fat32|zfs)$</value>
                                 <operator>8</operator>
                                 <formulaid>A</formulaid>
                             </condition>
                         </conditions>
                     </filter>
-                    <lifetime>30</lifetime>
+                    <lifetime>8</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
@@ -579,7 +569,7 @@
                             <name>Free disk space on {HOSTNAME} volume {#FSNAME} &lt; 10%</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
+                            <priority>3</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -597,7 +587,7 @@
                             <name>Number of free inodes on {HOSTNAME} volume {#FSNAME} &lt; 10%</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
+                            <priority>3</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -631,7 +621,7 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
+                                    <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
                                     <yaxisside>0</yaxisside>
@@ -643,7 +633,7 @@
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
+                                    <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>0000C8</color>
                                     <yaxisside>0</yaxisside>
