@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-01-21T16:23:13Z</date>
+    <date>2016-01-21T16:36:50Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -569,7 +569,7 @@
                             <name>Free disk space on {HOSTNAME} volume {#FSNAME} &lt; 10%</name>
                             <url/>
                             <status>0</status>
-                            <priority>3</priority>
+                            <priority>4</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -587,7 +587,7 @@
                             <name>Number of free inodes on {HOSTNAME} volume {#FSNAME} &lt; 10%</name>
                             <url/>
                             <status>0</status>
-                            <priority>3</priority>
+                            <priority>4</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
