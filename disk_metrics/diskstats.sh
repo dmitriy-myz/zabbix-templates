@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 case $1 in
 discovery)
     let first=1
@@ -9,7 +7,7 @@ discovery)
     echo "{"
     echo '"data": [ '
 
-    drives=`ls /dev/ | egrep "^(sd.|md.)$"`
+    drives=`ls /dev/ | egrep "^(sd|md|xvd).$"`
 
     for drive in $drives; do 
         if [ $first -eq 0 ]; then
