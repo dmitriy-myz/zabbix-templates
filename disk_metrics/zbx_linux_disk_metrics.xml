@@ -69,7 +69,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>iops[{#DRIVENAME}]</key>
+                            <key>disk.iops[{#DRIVENAME}]</key>
                             <delay>60</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -146,7 +146,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>Disk status</host>
-                                        <key>iops[{#DRIVENAME}]</key>
+                                        <key>disk.iops[{#DRIVENAME}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
