@@ -7,7 +7,7 @@ discovery)
     echo "{"
     echo '"data": [ '
 
-    drives=`ls /dev/ | egrep "^(sd|md|xvd).$"`
+    drives=`ls /dev/ | egrep "^(sd|md|xvd|vd).$"`
 
     for drive in $drives; do 
         if [ $first -eq 0 ]; then
