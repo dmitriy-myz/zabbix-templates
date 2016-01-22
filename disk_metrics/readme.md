@@ -1,11 +1,7 @@
 ## Disc metrics
 
 
-Provides disk usage: iops count, disk space usage, triggers.
-
-
-##TODO 
- software raid information
+Provides disk usage: iops count, disk space usage, triggers, software raid information (mismatch count)
 
 
 ## How to install
