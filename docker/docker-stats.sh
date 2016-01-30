@@ -11,3 +11,16 @@ function memory_stat() {
 
 }
 
+function process_count() {
+    container=$1
+    cat /sys/fs/cgroup/cpu/docker/${container}/cgroup.procs | wc -l
+}
+
+case $1 in 
+    memory)
+        memory_stat $2
+        break;;
+    process_count)
+        process_count $2
+        break;;
+esac
