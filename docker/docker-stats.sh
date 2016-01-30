@@ -19,8 +19,8 @@ function process_count() {
 case $1 in 
     memory)
         memory_stat $2
-        break;;
+        ;;
     process_count)
         process_count $2
-        break;;
+        ;;
 esac
