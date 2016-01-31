@@ -1,14 +1,17 @@
 #!/bin/bash
 
-
 #ls /sys/fs/cgroup/cpu/docker/ -l | grep "^d" | rev | awk '{print $1}' | rev
 
 function memory_stat() {
     container=$1
     pids=`cat /sys/fs/cgroup/cpu/docker/${container}/cgroup.procs`
-    pids=`echo $pids | tr " " "|"`
-    ps aux | awk "\$2 ~ \"^($pids)\$\" {SUM += \$6} END {print SUM}"
-
+    mem=0
+#    pids=`echo $pids | tr " " "|"`
+#    ps aux | awk "\$2 ~ \"^($pids)\$\" {SUM += \$6} END {print SUM}"
+    for pid in $pids; do
+        let mem=$mem+`sudo cat /proc/$pid/smaps  | grep Pss | awk '{SUM += $2} END {print SUM}'`
+    done
+    echo ${mem}
 }
 
 function process_count() {
@@ -16,7 +19,7 @@ function process_count() {
     cat /sys/fs/cgroup/cpu/docker/${container}/cgroup.procs | wc -l
 }
 
-case $1 in 
+case $1 in
     memory)
         memory_stat $2
         ;;
@@ -24,3 +27,4 @@ case $1 in
         process_count $2
         ;;
 esac
+
