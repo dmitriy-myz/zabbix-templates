@@ -4,7 +4,7 @@
 case $1 in
     collect)
         sudo -g docker docker ps -a --no-trunc > /tmp/.zbx_containers
-        cat /tmp/.zbx_containers | awk '{print $1 " " $NF}' | /opt/scripts/docker-discover.py
+        cat /tmp/.zbx_containers | grep "\sUp\s" | awk '{print $1 " " $NF}' | /opt/scripts/docker-discover.py
     ;;
     all)
         cat /tmp/.zbx_containers | grep -v "CONTAINER ID" | wc -l
