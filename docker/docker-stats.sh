@@ -19,6 +19,12 @@ function process_count() {
     cat /sys/fs/cgroup/cpu/docker/${container}/cgroup.procs | wc -l
 }
 
+function cpu_usage() {
+    type=$1
+    container=$2
+    cat /sys/fs/cgroup/cpuacct/docker/${container}/cpuacct.stat |  grep ${type} | awk '{print $2}'
+}
+
 case $1 in
     memory)
         memory_stat $2
@@ -26,5 +32,12 @@ case $1 in
     process_count)
         process_count $2
         ;;
+    cpu_user)
+        cpu_usage user $2
+        ;;
+    cpu_system)
+        cpu_usage system $2
+        ;;
+
 esac
 
