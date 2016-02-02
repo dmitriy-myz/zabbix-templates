@@ -19,8 +19,8 @@ sudo cp docker.conf /etc/zabbix/zabbix_agentd.conf.d/
 add those lines to /etc/sudoers
 
 ```
-zabbix ALL=(:docker) NOPASSWD:/usr/bin/docker ps -a --no-trunc
-zabbix ALL=(root) NOPASSWD:/bin/cat /proc/*/smaps
+zabbix ALL=(:docker) NOLOG_OUTPUT:NOPASSWD:/usr/bin/docker ps -a --no-trunc
+zabbix ALL=(root) NOLOG_OUTPUT:NOPASSWD:/bin/cat /proc/*/smaps
 ```
 
 Import template zbx_docker_templte.xml to zabbix server
