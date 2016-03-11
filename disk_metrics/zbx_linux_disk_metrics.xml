@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-01-28T12:58:03Z</date>
+    <date>2016-03-11T09:47:16Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -152,6 +152,92 @@
                             <valuemap/>
                             <logtimefmt/>
                         </item_prototype>
+                        <item_prototype>
+                            <name>Disk {#DRIVENAME} read OPS</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>vfs.dev.read[{#DRIVENAME},ops]</key>
+                            <delay>60</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ops</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Perfomance</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Disk {#DRIVENAME} write OPS</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>vfs.dev.write[{#DRIVENAME},ops]</key>
+                            <delay>60</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>ops</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Perfomance</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
@@ -193,6 +279,30 @@
                                     <item>
                                         <host>Disk status</host>
                                         <key>disk.iops[{#DRIVENAME}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Disk status</host>
+                                        <key>vfs.dev.read[{#DRIVENAME},ops]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Disk status</host>
+                                        <key>vfs.dev.write[{#DRIVENAME},ops]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -691,18 +801,6 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>0</drawtype>
-                                    <color>00C800</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>Disk status</host>
-                                        <key>vfs.fs.inode[{#FSNAME},free]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
                                     <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>0000C8</color>
@@ -712,6 +810,18 @@
                                     <item>
                                         <host>Disk status</host>
                                         <key>vfs.fs.inode[{#FSNAME},used]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Disk status</host>
+                                        <key>vfs.fs.inode[{#FSNAME},free]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
