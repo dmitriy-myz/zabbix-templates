@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-02-01T20:38:06Z</date>
+    <date>2016-03-24T08:53:31Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -237,11 +237,11 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>docker.stats[cpu_system,{#SHASUM}]</key>
-                            <delay>60</delay>
+                            <delay>30</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>1</delta>
@@ -280,11 +280,11 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>docker.stats[cpu_user,{#SHASUM}]</key>
-                            <delay>60</delay>
+                            <delay>30</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>1</delta>
@@ -424,7 +424,7 @@
                             <ymax_item_1>0</ymax_item_1>
                             <graph_items>
                                 <graph_item>
-                                    <sortorder>0</sortorder>
+                                    <sortorder>1</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>00C800</color>
                                     <yaxisside>0</yaxisside>
@@ -432,11 +432,11 @@
                                     <type>0</type>
                                     <item>
                                         <host>Template Docker</host>
-                                        <key>docker.stats[cpu_system,{#SHASUM}]</key>
+                                        <key>docker.stats[cpu_user,{#SHASUM}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
-                                    <sortorder>1</sortorder>
+                                    <sortorder>0</sortorder>
                                     <drawtype>0</drawtype>
                                     <color>C80000</color>
                                     <yaxisside>0</yaxisside>
@@ -444,7 +444,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>Template Docker</host>
-                                        <key>docker.stats[cpu_user,{#SHASUM}]</key>
+                                        <key>docker.stats[cpu_system,{#SHASUM}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
