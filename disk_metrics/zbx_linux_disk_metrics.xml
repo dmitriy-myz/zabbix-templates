@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-03-11T09:47:16Z</date>
+    <date>2016-04-19T12:36:11Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -115,19 +115,19 @@
                     <item_prototypes>
                         <item_prototype>
                             <name>Disk {#DRIVENAME} IOPS</name>
-                            <type>0</type>
+                            <type>15</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>disk.iops[{#DRIVENAME}]</key>
+                            <key>vfs.dev.iops[{#DRIVENAME}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
-                            <units/>
-                            <delta>1</delta>
+                            <units>iops</units>
+                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -137,7 +137,7 @@
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
                             <delay_flex/>
-                            <params/>
+                            <params>last(&quot;vfs.dev.read[{#DRIVENAME},ops]&quot;)+last(&quot;vfs.dev.write[{#DRIVENAME},ops]&quot;)</params>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
                             <authtype>0</authtype>
@@ -148,7 +148,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>Perfomance</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                             <logtimefmt/>
                         </item_prototype>
@@ -241,7 +245,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Disk status:disk.iops[{#DRIVENAME}].last()}&gt;400</expression>
+                            <expression>{Disk status:vfs.dev.iops[{#DRIVENAME}].last()}&gt;400</expression>
                             <name>IOPS count on {HOSTNAME} drive: {#DRIVENAME}</name>
                             <url/>
                             <status>0</status>
@@ -252,7 +256,7 @@
                     </trigger_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Disk {#DRIVENAME} IOPS</name>
+                            <name>IOPS: {#DRIVENAME}</name>
                             <width>900</width>
                             <height>200</height>
                             <yaxismin>0.0000</yaxismin>
@@ -278,7 +282,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>Disk status</host>
-                                        <key>disk.iops[{#DRIVENAME}]</key>
+                                        <key>vfs.dev.iops[{#DRIVENAME}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -336,12 +340,18 @@
                     <privatekey/>
                     <port/>
                     <filter>
-                        <evaltype>2</evaltype>
+                        <evaltype>1</evaltype>
                         <formula/>
                         <conditions>
                             <condition>
                                 <macro>{#FSTYPE}</macro>
-                                <value>^(btrfs|ext2|ext3|ext4|jfs|reiser|xfs|ffs|ufs|jfs|jfs2|vxfs|hfs|ntfs|fat32|zfs)$</value>
+                                <value>@File systems for discovery</value>
+                                <operator>8</operator>
+                                <formulaid>B</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#FSNAME}</macro>
+                                <value>@File systems for discovery - exclude</value>
                                 <operator>8</operator>
                                 <formulaid>A</formulaid>
                             </condition>
