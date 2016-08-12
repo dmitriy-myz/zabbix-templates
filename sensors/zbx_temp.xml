@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-08-12T13:04:42Z</date>
+    <date>2016-08-12T13:14:16Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -30,7 +30,7 @@
                     <snmp_community/>
                     <snmp_oid/>
                     <key>temp_sensor_discovery</key>
-                    <delay>60</delay>
+                    <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -64,7 +64,7 @@
                             <multiplier>1</multiplier>
                             <snmp_oid/>
                             <key>temp_sensor[{#DEV_DIR}/{#TEMP_SENSOR}_crit]</key>
-                            <delay>30</delay>
+                            <delay>300</delay>
                             <history>90</history>
                             <trends>365</trends>
                             <status>0</status>
