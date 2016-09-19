@@ -14,37 +14,23 @@ url = 'http://127.0.0.1:3004/v1/health/node/{0}'.format(nodeName)
 #print url
 
 
-def getUrl(url, cached = True):
-    cacheFileName = md5.new(url).hexdigest()
-    cacheFile = '/tmp/{0}'.format(cacheFileName)
-
-    if cached:
-        with open(cacheFile, 'r') as f:
-            result = f.read()
-    else:
-        result = requests.get(url).text
-        with open(cacheFile, 'w') as f:
-            f.write(result)
-    return result
-
 def getDiscovery():
     discovery_list = {}
     discovery_list['data'] = []
 
-    nodeServices = getUrl(url, False)
+    nodeServices = requests.get(url).text
 
     services = json.loads(nodeServices)
     for service in services:
         if service['CheckID'] != 'serfHealth':
             #print service['Status']
             #print service['ServiceName']
-            zbx_item = {"{#ServiceID}": service['ServiceID']}
+            zbx_item = {"{#SERVICEID}": service['ServiceID']}
             discovery_list['data'].append(zbx_item)
     print json.dumps(discovery_list, indent=4, sort_keys=True)
 
-
 def getStatus(ServiceID):
-    nodeServices = getUrl(url, True)
+    nodeServices = requests.get(url).text
     services = json.loads(nodeServices)
     status = 0
     for service in services:
