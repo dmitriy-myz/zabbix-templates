@@ -10,7 +10,7 @@ import md5
 nodeName = socket.gethostname()
 #print nodeName
 
-url = 'http://127.0.0.1:3004/v1/health/node/{0}'.format(nodeName)
+url = 'http://127.0.0.1:8500/v1/health/node/{0}'.format(nodeName)
 #print url
 
 

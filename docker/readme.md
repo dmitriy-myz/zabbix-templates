@@ -1,4 +1,4 @@
-## Disc metrics
+## Docker metrics
 
 
 Provide: CPU usage, memory usage, process count, information about running containers.
