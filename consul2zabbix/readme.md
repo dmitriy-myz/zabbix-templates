@@ -1,4 +1,4 @@
-## Consul to zabbix mapper
+## Consul to zabbix monitoring
 With this template you can easily see consul health checks on zabbix.  
 You can register service on consul and see it status on zabbix.  
 It provide:
@@ -18,5 +18,5 @@ sudo cp consul2zabbix.py /opt/scripts/
 change consul address/port to actual value
 Import template consul2zabbix.xml to zabbix server. Change severity level.
 
-Add Consul2Zabbix template to nodes on which you want to monitor consul/services.
+Add Consul2Zabbix template to nodes on which you want to map consul services to zabbix.
 
