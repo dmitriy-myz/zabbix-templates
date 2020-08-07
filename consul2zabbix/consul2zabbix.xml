@@ -94,12 +94,12 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>{#SERVICEID} status</name>
+                            <name>{#SERVICEID} status on {#NODENAME}</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>consul2zabbix[status,{#SERVICEID}]</key>
+                            <key>consul2zabbix[status,{#NODENAME},{#SERVICEID}]</key>
                             <delay>60</delay>
                             <history>90</history>
                             <trends>365</trends>
@@ -136,10 +136,10 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Consul2Zabbix:consul2zabbix[status,{#SERVICEID}].last()}&lt;&gt;1</expression>
+                            <expression>{Consul2Zabbix:consul2zabbix[status,{#NODENAME},{#SERVICEID}].last()}&lt;&gt;1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>{#SERVICEID} status on {HOSTNAME}</name>
+                            <name>{#SERVICEID} status on {#NODENAME}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
