@@ -84,5 +84,5 @@ elif action == 'status':
     serviceID = sys.argv[3]
     getStatus(serviceID, node)
 elif action == 'nodestatus':
-    node = sys.argv[2]
+    node = socket.gethostname()
     nodeStatus(node)
